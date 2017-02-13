@@ -1,6 +1,7 @@
 package com.vborovic.android.criminalintent;
 
 import android.content.Context;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,13 +10,13 @@ import java.util.UUID;
 /**
  * Created by vborovic on 2/6/17.
  */
-public class CrimeLab {
+class CrimeLab {
     private static CrimeLab sCrimeLab;
     private List<Crime> mCrimes = new ArrayList<>();
     private Context mContext;
 
 
-    public static CrimeLab get(Context context) {
+    static CrimeLab get(Context context) {
         if (sCrimeLab == null) {
             sCrimeLab = new CrimeLab(context);
         }
@@ -35,13 +36,14 @@ public class CrimeLab {
 
     }
 
-    public List<Crime> getCrimes() {
+    List<Crime> getCrimes() {
         return mCrimes;
     }
 
-    public Crime getCrime(UUID uuid) {
+    Crime getCrime(UUID uuid) {
         for (Crime c: mCrimes) {
-            if (c.getId() == uuid) {
+            Log.d("getCrime", uuid + " == " + c.getId() + ": " + (c.getId() == uuid));
+            if (c.getId().equals(uuid)) {
                 return c;
             }
         }
