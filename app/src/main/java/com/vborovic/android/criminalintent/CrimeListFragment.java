@@ -20,7 +20,6 @@ import java.util.List;
  * Created by vborovic on 2/6/17.
  */
 public class CrimeListFragment extends Fragment {
-    private static final int REQUEST_CRIME = 1;
     private RecyclerView mCrimeRecyclerView;
     private CrimeAdapter mAdapter;
 
@@ -53,17 +52,6 @@ public class CrimeListFragment extends Fragment {
         updateUI();
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CRIME) {
-
-        }
-    }
-
-    public void returnResult() {
-        getActivity().setResult(Activity.RESULT_OK, null);
-    }
-
     private class CrimeHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView mTitleTextView;
         private TextView mDateTextView;
@@ -88,8 +76,8 @@ public class CrimeListFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            Intent intent = CrimeActivity.newIntent(getActivity(), mCrime.getId());
-            startActivityForResult(intent, REQUEST_CRIME);
+            Intent intent = CrimePagerActivity.newIntent(getActivity(), mCrime.getId());
+            startActivity(intent);
         }
     }
 
