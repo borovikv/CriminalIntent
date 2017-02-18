@@ -2,14 +2,14 @@ package com.vborovic.android.criminalintent;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * Created by vborovic on 2/6/17.
  */
 
-public abstract class SingleFragmentActivity  extends FragmentActivity {
+public abstract class SingleFragmentActivity  extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
