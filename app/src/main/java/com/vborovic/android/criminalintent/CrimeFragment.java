@@ -110,4 +110,10 @@ public class CrimeFragment extends Fragment {
     private void updateDate() {
         mDateButton.setText(DateFormat.format("MMMM, EEEE dd yyyy", mCrime.getDate()).toString());
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        CrimeLab.get(getActivity()).updateCrime(mCrime);
+    }
 }
